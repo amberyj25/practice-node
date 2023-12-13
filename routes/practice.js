@@ -1,25 +1,7 @@
 var express = require('express');
 var router = express.Router();
+const practiceController = require('../controllers/practiceController');
 
-const productList = [{
-  id: 1,
-  title: 'product1'
-},{
-  id: 2,
-  title: 'product2'
-},{
-  id: 3,
-  title: 'product3'
-},{
-  id: 4,
-  title: 'product4'
-},{
-  id: 5,
-  title: 'product5'
-},{
-  id: 6,
-  title: 'product6'
-}]
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -28,13 +10,7 @@ router.get('/', function (req, res, next) {
 });
 
 /* GET productList */
-router.get('/productList', function (req, res, next) {
-  res.send({
-    success: true,
-    productList
-  })
-  res.end();
-});
+router.get('/productList', practiceController.getAllProduct);
 
 /* POST productList */
 /* postMan get value from body */
