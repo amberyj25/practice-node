@@ -2,12 +2,6 @@ var express = require('express');
 var router = express.Router();
 const practiceController = require('../controllers/practiceController');
 
-/* GET home page. */
-router.get('/', function (req, res, next) {
-  // render view
-  res.render('index', { title: 'Express' });
-});
-
 /* GET productList */
 router.get('/productList', practiceController.getAllProduct);
 
