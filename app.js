@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var practiceRouter = require('./routes/practice');
@@ -39,5 +40,14 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+mongoose
+  .connect("mongodb+srv://amber20240:12345@cluster0.yzq8lrq.mongodb.net/?retryWrites=true&w=majority")
+  .then(() => {
+    console.log('connected to MongoDB');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 module.exports = app;

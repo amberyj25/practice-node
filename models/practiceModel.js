@@ -1,40 +1,37 @@
 const { v4: uuidv4 } = require('uuid');
-console.log(uuidv4())
+const mongoose = require('mongoose');
+
+const productSchema = mongoose.Schema({
+  id: {
+    type: String,
+    require: true
+  },
+  title: {
+    type: String,
+    require: true
+  }
+})
+
+const Product = mongoose.model('product', productSchema);
 
 class practiceModel {
-  constructor() {
-    this.products = [{
-      id: uuidv4(),
-      title: 'product1'
-    }, {
-      id: uuidv4(),
-      title: 'product2'
-    }, {
-      id: uuidv4(),
-      title: 'product3'
-    }, {
-      id: uuidv4(),
-      title: 'product4'
-    }];
+  constructor() {};
+
+  async getAllProduct() {
+    return await Product.find();
   };
 
-  getAllProduct() {
-    return this.products;
-  };
-
-  postProduct(params) {
-    this.products.push({
+  async postProduct(params) {
+    const productResponae = await Product.create({
       id: uuidv4(),
       title: params.title
     });
 
-    return this.products;
+    return productResponae;
   };
 
-  deleteProduct(params) {
-    this.products.forEach((product, index) => {
-      if (product.id === params.id) this.products.splice(index, 1);
-    });
+  async deleteProduct(params) {
+    await Product.deleteOne({ id: params.id });
 
     return this.products;
   }
