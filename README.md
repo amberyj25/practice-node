@@ -13,9 +13,9 @@
 
 - API 部署在 cyclic.sh 平台
   - GET API - 全部 products
-    - https://enchanting-tweed-jacket-colt.cyclic.app/practice/productList
+    - https://practice-node-bth4.onrender.com/practice/productList
   - POST API - 新增 product
-    - https://enchanting-tweed-jacket-colt.cyclic.app/practice/product
+    - https://practice-node-bth4.onrender.com/practice/product
     - Postman body 範例可以給以下
     ```
     {
@@ -23,7 +23,7 @@
     }
     ```
   - DELETE API - 刪除 product
-    - https://enchanting-tweed-jacket-colt.cyclic.app/practice/deleteProduct
+    - https://practice-node-bth4.onrender.com/practice/deleteProduct
     - Postman body 範例可以給以下
     ```
     須先call GET API 取得想刪除的 id
