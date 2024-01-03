@@ -20,4 +20,8 @@ router.delete('/deleteProduct', practiceController.deleteProdcut);
 /* postMan get value value from url params*/
 router.delete('/deleteProductQuery/:id', practiceController.deleteProdcutQuery);
 
+/* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
 module.exports = router;
